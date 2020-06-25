@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+ <div class="main-wrapper">
+	    
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+            {% if posts %}
+            {% for posts in posts %}
+            			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ posts.photo_main.url }}" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="{% url 'post' posts.id %}">{{posts.heading}}</a></h3>
+						    <div class="meta mb-1"><span class="date">{{posts.post_date | timesince}} ago</span><span class="time">by {{posts.blogger}}</span><!--<span class="comment"><a href="#">4 comments</a></span></div>-->
+						    <div class="intro">{{posts.body}}</div>
+						    <a class="more-link" href="{% url 'post' posts.id %}">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+            {% endfor %}
+
+            {% else %}
+
+            <h1> no post </h1>
+            {% endif %}
+
+			   
+	
+			    <nav class="blog-nav nav nav-justified my-5">
+				{% if posts.has_other_pages %}
+				  <nav aria-label="...">
+							
+						<ul class="pagination">
+							
+								{% if posts.has_previous %}
+							
+    								<li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+								{% else %}
+									<li class="page-item disabled"><a class="page-link" href="#">Previous&laquo;</a></li>
+								
+								{% endif %}
+								{% for i in posts.paginator.page_range  %}
+								{% if posts.number == i %}
+								 <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+								{% else %}
+								 <li class="page-item "><a href="?page={{i}}" class="page-link" href="#">{{i}}</a></li>
+								{% endif %}
+								{% endfor %}
+
+								{% if posts.has_next %}
+								<li class="page-item">
+      							<a class="page-link" href="?page={{ posts.next_page_number }}">Next&raquo;</a>
+    							</li>
+								{% else %}
+								<li class="page-item disabled">
+      							<a class="page-link" href="#">Next</a>
+    							</li>
+								{% endif %}
+							
+						</ul>
+						</nav>
+				{% endif %}
+				</nav>
+				
+		    </div>
+	    </section>
+	    
+	  
+    
+    </div><!--//main-wrapper-->
+
+{% endblock %}

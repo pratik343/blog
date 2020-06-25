@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+ <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		
+		    <div class="container text-center">
+			    <h2 class="heading">Bloog.com</h2>
+				
+			    <div class="intro">Welcome Bloog.com</div>
+			    <form class="signup-form form-inline justify-content-left pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+		    </div><!--//container-->
+	    </section>
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+
+				<form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" name="email">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+		    </div>
+	    </section>
+
+        </div>
+{% endblock %}

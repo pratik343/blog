@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">{{post.heading}}</h2>
+				    <div class="meta mb-3"><span class="date">{{post.post_date}}</span><span class="time">by {{post.blogger}}</span><!--<span class="comment"><a href="#">4 comments</a></span></div>-->
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    <figure class="blog-banner">
+				        <img  width="100%" height="25%" class="img-fluid" src="{{post.photo_main.url}}" alt="image" >
+				        <figcaption class="mt-2 text-center image-caption">Caption:{{post.photo_caption}}</figcaption>
+				    </figure>
+				    <p>{{post.body}} </p>
+				    
+				    <h3 class="mt-5 mb-3">{{post.heading_2}}</h3>
+				    <p>{{post.body_2}}</p>
+				    <h3 class="mt-5 mb-3">{{post.heading_3}}</h3>
+				    <p>{{post.body_3}}</p>
+				
+					<h5 class="my-3">{{post.quote_head}}</h5>
+					<blockquote class="blockquote m-lg-5 py-3 pl-4 px-lg-5">
+						<p class="mb-2">{{post.quote}}</p>
+						<footer class="blockquote-footer">{{post.quote_credit}}</footer>
+					</blockquote>
+					
+					
+					
+					
+
+
+				    
+				    
+				   
+				   
+			    </div>
+				    
+			   
+			
+				
+		    </div><!--//container-->
+	    </article>
+	    
+	    <section class="promo-section theme-bg-light py-5 text-center">
+		    <div class="container">
+			    <h2 class="title">{{post.promo}}</h2>
+			    <p>{{post.promo_body}}</p>
+                <figure class="promo-figure">
+			        <a href="{{post.promo_url}}"><img class="img-fluid" src="{{post.promo_img.url}}" alt="image"></a>
+			    </figure>
+		    </div><!--//container-->
+	    </section><!--//promo-section-->
+	    
+    
+    </div><!--//main-wrapper-->
+
+{% endblock %}
